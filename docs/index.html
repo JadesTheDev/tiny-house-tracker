@@ -1,62 +1,156 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#111629"><title>Hearth & Haul · Tiny House Tracker</title>
-<style>
-:root{color-scheme:dark;--bg:#0d1020;--panel:#191d34;--panel2:#222744;--border:#373c5c;--ink:#f1edff;--muted:#adb1d1;--lav:#c5a6ff;--mint:#9fe4c7;--gold:#f4d39b}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 12% 2%,#31365d 0,transparent 38%),radial-gradient(ellipse at 90% 5%,#38223f 0,transparent 34%),var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,sans-serif;min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--lav)}.shell{max-width:1180px;margin:auto;padding:0 22px 60px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #ffffff18;padding:22px 0}.brand{font-family:Georgia,serif;font-size:1.35rem;font-weight:700;letter-spacing:.02em}.brand span{color:var(--mint)}.top small{color:var(--muted)}.top-actions{display:flex;align-items:center;gap:10px}.btn{border:1px solid #5d6082;background:#2b3051;color:var(--ink);border-radius:12px;padding:11px 15px;font-weight:650}.btn:hover,.card:hover{border-color:var(--lav)}.btn.primary{background:linear-gradient(110deg,#8f72cb,#668fba);border:0;color:white}.btn.ghost{background:transparent}.hero{padding:60px 0 32px;display:grid;grid-template-columns:1.6fr 1fr;align-items:center;gap:24px}.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;color:var(--mint);font-weight:750}.hero h1{font:700 clamp(2.5rem,6vw,5rem)/1.08 Georgia,serif;margin:12px 0 18px;letter-spacing:-.035em}.hero h1 em{font-style:normal;color:var(--lav)}.hero p{color:var(--muted);max-width:610px;line-height:1.7}.hero-art{height:230px;border:1px solid #5a5275;border-radius:26px;background:linear-gradient(155deg,#4d476a,#222641 56%,#192a3b);position:relative;overflow:hidden;display:grid;place-items:center}.hero-art:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;background:#ddc4ff33;right:35px;top:-30px;box-shadow:0 0 75px #d4b2ff30}.hero-art svg{width:88%;max-width:320px;position:relative;filter:drop-shadow(0 15px 15px #080b1c77)}.art-note{position:absolute;bottom:15px;left:20px;font-size:.7rem;letter-spacing:.15em;color:#e6dcf5}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:4px 0 38px}.stat{background:#1b2037cc;border:1px solid var(--border);border-radius:17px;padding:20px}.stat strong{display:block;font-size:1.8rem;margin:8px 0 3px}.stat span{font-size:.8rem;color:var(--muted)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:18px}.section-head h2{font:700 2rem Georgia,serif;margin:5px 0}.section-head p{margin:0;color:var(--muted);font-size:.9rem}.search{background:#14192c;border:1px solid #4a4e72;color:var(--ink);border-radius:12px;padding:12px 14px;min-width:230px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{background:linear-gradient(145deg,#222743,#181d33);border:1px solid #444766;border-radius:20px;padding:22px;text-align:left;color:var(--ink);transition:transform .15s,border-color .15s;min-height:208px}.card:hover{transform:translateY(-3px)}.card-top{display:flex;align-items:center;justify-content:space-between}.glyph{width:50px;height:50px;border-radius:15px;background:#383655;display:grid;place-items:center;font-size:1.6rem}.arrow{color:var(--lav);font-size:1.4rem}.card h3{font:700 1.28rem Georgia,serif;margin:20px 0 7px}.card p{color:var(--muted);font-size:.83rem;line-height:1.5;margin:0;min-height:40px}.meter{height:6px;background:#0e1427;border-radius:30px;overflow:hidden;margin-top:19px}.meter>i{display:block;background:linear-gradient(90deg,var(--mint),var(--lav));height:100%;border-radius:30px}.card-foot{display:flex;justify-content:space-between;color:#b8bdd7;font-size:.75rem;margin-top:10px}.note{border:1px solid #4b486a;border-radius:18px;background:#24233a8c;padding:20px;margin-top:26px;color:#c8c7dd;line-height:1.6}.note strong{color:var(--gold)}footer{display:flex;gap:18px;justify-content:space-between;color:#888fae;font-size:.8rem;margin-top:45px;border-top:1px solid #ffffff19;padding-top:22px}.back{margin:32px 0 12px}.detail-hero{display:flex;align-items:center;gap:18px;margin:18px 0 26px}.detail-hero h1{font:700 clamp(2.1rem,5vw,3.7rem) Georgia,serif;margin:5px 0}.detail-hero p{color:var(--muted);margin:0}.detail-grid{display:grid;grid-template-columns:1fr 310px;gap:20px}.pane{background:#191e35e8;border:1px solid #3e4364;border-radius:20px;padding:22px;margin-bottom:18px}.pane h2{font:700 1.4rem Georgia,serif;margin:0 0 12px}.pane p,.hint{color:var(--muted);font-size:.87rem;line-height:1.6}.item{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:start;border-top:1px solid #ffffff15;padding:16px 0}.item:first-of-type{border-top:0}.item input[type=checkbox]{accent-color:#a9d9c4;width:18px;height:18px;margin-top:4px}.item-title{font-weight:650}.item-sub{color:var(--muted);font-size:.78rem;margin-top:5px;line-height:1.5}.pill{display:inline-block;background:#32304b;border:1px solid #514b74;border-radius:40px;padding:4px 9px;color:#d8caff;font-size:.7rem}.item-controls{display:flex;gap:7px;align-items:center}.small-btn{background:#252a47;border:1px solid #4a5077;color:#dcdaf3;border-radius:9px;padding:7px 9px}.field{display:flex;flex-direction:column;gap:6px;color:#b9c2db;font-size:.8rem;margin-bottom:12px}.field input,.field select,.field textarea{background:#0d1427;color:var(--ink);border:1px solid #485071;border-radius:10px;padding:11px;width:100%}.field textarea{min-height:75px;resize:vertical}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.progress{height:9px;background:#0d1427;border-radius:20px;overflow:hidden;margin:12px 0}.progress i{display:block;background:linear-gradient(90deg,var(--mint),var(--lav));height:100%}.saved-find{border-top:1px solid #ffffff1b;padding:13px 0;overflow-wrap:anywhere}.saved-find a{font-size:.82rem}.saved-find strong{display:block;margin-bottom:4px}.empty{color:var(--muted);padding:18px;border:1px dashed #555a79;border-radius:12px;font-size:.88rem}.warning{color:#e9c89a;font-size:.77rem;line-height:1.6}.hidden{display:none!important}.muted{color:var(--muted)}.demo{font-size:.7rem;color:#e5caa3;border:1px solid #776348;border-radius:30px;padding:5px 9px}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#344462;border:1px solid #8294bd;padding:12px 20px;border-radius:12px;box-shadow:0 8px 28px #0007;z-index:9}
-@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.hero-art{height:180px}.detail-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:530px){.shell{padding:0 16px 35px}.top{align-items:flex-start}.top small{display:none}.hero{padding-top:34px}.hero-art{height:150px}.grid{grid-template-columns:1fr}.section-head{align-items:stretch;flex-direction:column}.search{width:100%}.stat{padding:14px}.stat strong{font-size:1.4rem}.card{min-height:185px}.detail-hero{align-items:flex-start}.pane{padding:17px}.form-row{grid-template-columns:1fr}.item{grid-template-columns:auto 1fr}.item-controls{grid-column:2}footer{flex-direction:column}}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111629">
+<title>Hearth & Haul · Tiny House Tracker</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body><div class="shell">
-<nav class="top"><div><div class="brand">✦ Hearth <span>&</span> Haul</div><small>A tiny house materials journal</small></div><div class="top-actions"><span class="demo">FRONTEND PREVIEW</span><button class="btn ghost" id="home-btn" type="button">Home</button></div></nav>
+<body>
+<div class="shell">
+<nav class="top">
+<div>
+<div class="brand">✦ Hearth <span>&</span> Haul</div>
+<small>A tiny house materials journal</small>
+</div>
+<div class="top-actions">
+<span class="demo">FRONTEND PREVIEW</span>
+<button class="btn ghost" id="home-btn" type="button">Home</button>
+</div>
+</nav>
 <main id="home">
-<section class="hero"><div><div class="eyebrow">The tiny house project · Salvage with purpose</div><h1>Every little piece <em>builds a home.</em></h1><p>Plan your build, collect reclaimed treasures, track your spending, and turn secondhand finds into something entirely your own.</p><button class="btn primary" id="explore-btn">Explore the build ↓</button></div>
-<div class="hero-art" aria-hidden="true"><svg viewBox="0 0 380 240" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 203h350" stroke="#A2B9C8" stroke-width="3"/><path d="M63 118 189 39 315 118" stroke="#E2C7FF" stroke-width="9" stroke-linejoin="round"/><path d="M86 115v83h208v-83" fill="#303D58" stroke="#C8BAE7" stroke-width="5"/><path d="M86 115 189 49 294 115" fill="#6E628F"/><rect x="112" y="129" width="55" height="44" rx="3" fill="#A4D6D0" stroke="#E2E7FF" stroke-width="4"/><path d="M140 129v44M112 151h55" stroke="#4E6384" stroke-width="3"/><rect x="208" y="139" width="49" height="59" fill="#755E7B" stroke="#E1CBEF" stroke-width="4"/><circle cx="248" cy="169" r="3" fill="#F9E0A5"/><path d="M66 201h248l25 15H47z" fill="#8293A8"/><circle cx="117" cy="218" r="13" fill="#11192D" stroke="#D6C5F4" stroke-width="5"/><circle cx="266" cy="218" r="13" fill="#11192D" stroke="#D6C5F4" stroke-width="5"/><path d="M339 216h27l10 9" stroke="#D6C5F4" stroke-width="5" stroke-linecap="round"/><path d="M329 52h15M336 44v16M46 56h10M51 51v10" stroke="#E8D7FF" stroke-width="3" stroke-linecap="round"/></svg><span class="art-note">BUILT FROM POSSIBILITY</span></div></section>
-<section class="stats" id="stats"></section>
-<div class="section-head" id="build-start"><div><div class="eyebrow">The collection map</div><h2>Explore your build</h2><p>Open a room or system to manage its materials.</p></div><input class="search" id="category-search" type="search" placeholder="Search house elements…" aria-label="Search house elements"></div>
-<section class="grid" id="cards"></section>
-<aside class="note"><strong>Reclaimed-first, safety-conscious.</strong> Start with salvage and secondhand finds where practical. Structural components, trailers, electrical equipment, and other safety-critical items still need appropriate inspection, ratings, and code compliance. Starter checklists are planning suggestions—not purchased inventory.</aside>
+<section class="hero">
+<div>
+<div class="eyebrow">The tiny house project · Salvage with purpose</div>
+<h1>Every little piece <em>builds a home.</em>
+</h1>
+<p>Plan your build, collect reclaimed treasures, track your spending, and turn secondhand finds into something entirely your own.</p>
+<button class="btn primary" id="explore-btn">Explore the build ↓</button>
+</div>
+<div class="hero-art" aria-hidden="true">
+<svg viewBox="0 0 380 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 203h350" stroke="#A2B9C8" stroke-width="3"/>
+<path d="M63 118 189 39 315 118" stroke="#E2C7FF" stroke-width="9" stroke-linejoin="round"/>
+<path d="M86 115v83h208v-83" fill="#303D58" stroke="#C8BAE7" stroke-width="5"/>
+<path d="M86 115 189 49 294 115" fill="#6E628F"/>
+<rect x="112" y="129" width="55" height="44" rx="3" fill="#A4D6D0" stroke="#E2E7FF" stroke-width="4"/>
+<path d="M140 129v44M112 151h55" stroke="#4E6384" stroke-width="3"/>
+<rect x="208" y="139" width="49" height="59" fill="#755E7B" stroke="#E1CBEF" stroke-width="4"/>
+<circle cx="248" cy="169" r="3" fill="#F9E0A5"/>
+<path d="M66 201h248l25 15H47z" fill="#8293A8"/>
+<circle cx="117" cy="218" r="13" fill="#11192D" stroke="#D6C5F4" stroke-width="5"/>
+<circle cx="266" cy="218" r="13" fill="#11192D" stroke="#D6C5F4" stroke-width="5"/>
+<path d="M339 216h27l10 9" stroke="#D6C5F4" stroke-width="5" stroke-linecap="round"/>
+<path d="M329 52h15M336 44v16M46 56h10M51 51v10" stroke="#E8D7FF" stroke-width="3" stroke-linecap="round"/>
+</svg>
+<span class="art-note">BUILT FROM POSSIBILITY</span>
+</div>
+</section>
+<section class="stats" id="stats">
+</section>
+<div class="section-head" id="build-start">
+<div>
+<div class="eyebrow">The collection map</div>
+<h2>Explore your build</h2>
+<p>Open a room or system to manage its materials.</p>
+</div>
+<input class="search" id="category-search" type="search" placeholder="Search house elements…" aria-label="Search house elements">
+</div>
+<section class="grid" id="cards">
+</section>
+<aside class="note">
+<strong>Reclaimed-first, safety-conscious.</strong> Start with salvage and secondhand finds where practical. Structural components, trailers, electrical equipment, and other safety-critical items still need appropriate inspection, ratings, and code compliance. Starter checklists are planning suggestions—not purchased inventory.</aside>
 </main>
-<main id="detail" class="hidden"><button class="btn ghost back" id="back-btn">← All house elements</button><div class="detail-hero"><div class="glyph" id="detail-icon"></div><div><div class="eyebrow">Element tracker</div><h1 id="detail-title"></h1><p id="detail-description"></p></div></div>
-<div class="detail-grid"><div><section class="pane"><h2>Materials checklist</h2><p>Check an item only when you actually have it. Use the edit button to record costs, quantities, and notes.</p><div id="items"></div><form id="add-item"><h3>Add a material</h3><label class="field">Material name<input id="new-item" required maxlength="120" placeholder="e.g. Reclaimed oak boards"></label><div class="form-row"><label class="field">Quantity needed<input id="new-qty" type="number" min="1" step="1" value="1"></label><label class="field">Estimated cost ($)<input id="new-estimate" type="number" min="0" step=".01" placeholder="Optional"></label></div><button class="btn primary" type="submit">+ Add material</button></form></section><section class="pane"><h2>Saved secondhand finds</h2><p>Save links and asking prices while you're hunting. Saving a find does not mark it as purchased.</p><div id="finds"></div><form id="add-find"><label class="field">Listing or item name<input id="find-name" required maxlength="140" placeholder="e.g. Salvaged window set"></label><label class="field">Listing URL (https://…) <input id="find-url" type="url" required placeholder="https://…"></label><div class="form-row"><label class="field">Asking price ($)<input id="find-price" type="number" min="0" step=".01" placeholder="Optional"></label><label class="field">Source<input id="find-source" maxlength="60" placeholder="Marketplace, yard sale…"></label></div><button class="btn primary" type="submit">+ Save find</button></form></section></div>
-<div><section class="pane"><h2>Collection progress</h2><div id="detail-progress"></div><div class="progress"><i id="detail-meter"></i></div><p id="detail-cost"></p></section><section class="pane"><h2>Project notes</h2><p>Measurements, preferences, inspection reminders, or design ideas.</p><label class="field">Your notes<textarea id="notes" placeholder="Write your plans here…"></textarea></label><button class="btn" id="save-notes">Save notes</button></section><section class="pane"><h2>Data & privacy</h2><p>This is a frontend prototype. Your edits are saved only in this browser's local storage, not GitHub or a shared database. Clearing browser data may erase them.</p><button class="btn ghost" id="export-btn">Export my tracker JSON ↓</button><p class="warning">Use Export to keep a backup. Syncing across devices comes in the backend phase.</p></section></div></div></main>
-<footer><span>✦ Hearth & Haul · Tiny House Tracker</span><span>Plan thoughtfully · Salvage creatively · Build safely</span><a href="https://github.com/JadesTheDev/tiny-house-tracker" target="_blank" rel="noopener noreferrer">View repository ↗</a></footer></div>
-<script>
-'use strict';
-const categories=[
-{id:'trailer',icon:'🛻',title:'Trailer & Chassis',desc:'Foundation, axles, deck, weight ratings and roadworthiness.',items:['Suitable trailer or chassis','VIN, title & registration review','Axle, tire & brake inspection','Structural frame assessment','Decking and attachment plan'],notes:'Target: approximately 8.5 × 16 ft, with 8 × 16 ft also under consideration. Verify load ratings and legal dimensions before purchase.'},
-{id:'framing',icon:'🪵',title:'Framing & Lumber',desc:'Reclaimed boards, studs, beams, subfloor and structural lumber.',items:['Floor framing lumber','Wall studs and plates','Roof rafters or trusses','Subfloor panels','Reclaimed finish wood'],notes:'Prioritize reclaimed lumber where suitable; verify condition, species, dimensions and structural use.'},
-{id:'roof',icon:'🏡',title:'Roofing & Exterior',desc:'Roof panels, weather barrier, siding, gutters and shutters.',items:['Roof covering','Underlayment and flashing','Weather-resistant barrier','Exterior siding','Functional shutters','Roof drainage materials'],notes:'Plan generous overhangs, durable weatherproofing and functional shutters.'},
-{id:'windows',icon:'🪟',title:'Windows & Doors',desc:'Operable windows, entry door, seals, screens and cat-resistant hardware.',items:['Main entry door','Operable loft windows','Book nook window','Window flashing and seals','Insect screens','Cat-resistant door hardware'],notes:'Avoid lever-style handles CoffeeBean can open. Favor high operable loft windows.'},
-{id:'insulation',icon:'🌿',title:'Insulation & Envelope',desc:'Floor, wall and roof insulation, air sealing and moisture control.',items:['Floor insulation','Wall insulation','Roof insulation','Air sealing supplies','Vapor/moisture strategy'],notes:'Assess insulation for the final climate and condensation risk. Experimental mycelium insulation requires careful validation.'},
-{id:'kitchen',icon:'🍳',title:'Kitchen',desc:'Cabinetry, appliances, sink, ventilation and countertop.',items:['Cabinets extending to ceiling','Exterior-ducted range hood','Sink and faucet','Countertop','Compact refrigerator','Toaster-oven / air fryer combo'],notes:'No dust-catching gap above cabinets. Range hood MUST exhaust outdoors; recirculating is not acceptable.'},
-{id:'bath',icon:'🛁',title:'Bathroom & Plumbing',desc:'Indoor toilet, bidet, shower, water lines and drainage.',items:['Indoor toilet system','Bidet-compatible plumbing','Shower enclosure','Bathroom sink','Fresh water lines','Drainage and venting'],notes:'Indoor bathroom is essential. Preserve a functional bidet and practical nighttime access.'},
-{id:'power',icon:'⚡',title:'Electrical & Energy',desc:'Solar, storage, outlets, lighting, cooling and safe distribution.',items:['Electrical load plan','Solar equipment','Battery storage','Inverter and protection','Air conditioning','Lighting and outlets'],notes:'Air conditioning is non-negotiable. Design electrical safety and sizing before buying components.'},
-{id:'interior',icon:'📚',title:'Interior & Storage',desc:'Stair storage, wainscoting, trim, shelves and finishes.',items:['Storage staircase','Open-side stair guardrail','Poplar or reclaimed wainscoting','Decorative panel details','Plum floral wallpaper','Shelving and trim'],notes:'Traditional decorative raised-panel wainscoting; warm cream or bone shades; dark plum floral wallpaper.'},
-{id:'heating',icon:'🔥',title:'Heating & Ventilation',desc:'Heating, fresh air, exhaust and humidity management.',items:['Heating system design','Small wood stove feasibility','Combustion air and clearances','Bathroom exhaust','Fresh-air ventilation','CO and smoke alarms'],notes:'Consider a small wall-mounted wood stove only if appropriate clearances, weight, venting and codes can be met.'},
-{id:'outdoors',icon:'🌱',title:'Outdoor & Catio',desc:'Cat enclosure, steps, rainwater and outdoor living.',items:['Catio framing and mesh','Exterior steps','Rainwater collection design','Outdoor storage','Entry landing'],notes:'South-side kitchen and catio are part of the broader design concept.'},
-{id:'tools',icon:'🧰',title:'Tools & Workshop',desc:'Borrow, salvage or buy the equipment needed for the build.',items:['Measuring and layout tools','Drill and driver','Saw and blades','Clamps and work supports','Protective equipment','Material storage plan'],notes:'Borrow or buy secondhand tools when practical; inspect electrical and mechanical safety.'}
-];
-const $=id=>document.getElementById(id),storeKey='hearth-haul-v1';
-let state={};try{const parsed=JSON.parse(localStorage.getItem(storeKey)||'{}');if(parsed&&typeof parsed==='object'&&!Array.isArray(parsed))state=parsed}catch(e){}
-let current=null;
-function section(id){if(!state[id]||typeof state[id]!=='object')state[id]={};const s=state[id];if(!Array.isArray(s.items))s.items=[];if(!Array.isArray(s.finds))s.finds=[];if(typeof s.notes!=='string')s.notes=categories.find(c=>c.id===id)?.notes||'';return s}
-function materialRows(c){const s=section(c.id);return [...c.items.map((name,i)=>({id:'base-'+i,name,qty:1,estimate:null,base:true})),...s.items].map(item=>({...item,...(s.edits?.[item.id]||{})}))}
-function persist(){try{localStorage.setItem(storeKey,JSON.stringify(state))}catch(e){alert('Browser storage unavailable. Export your data to keep a backup.')}} 
-const money=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:2}).format(n||0);
-function stats(){let total=0,owned=0,spent=0,finds=0;for(const c of categories){const s=section(c.id);const rows=materialRows(c);total+=rows.length;owned+=rows.filter(r=>r.owned).length;spent+=rows.reduce((sum,r)=>sum+(Number(r.paid)||0),0);finds+=s.finds.length}return {total,owned,spent,finds}}
-function renderHome(){const st=stats();$('stats').innerHTML=[['Elements',categories.length],['Materials collected',st.owned+' / '+st.total],['Spent so far',money(st.spent)],['Saved finds',st.finds]].map(([label,value])=>'<div class="stat"><span>'+label+'</span><strong>'+value+'</strong></div>').join('');const q=$('category-search').value.trim().toLowerCase();const cards=$('cards');cards.replaceChildren();for(const c of categories.filter(c=>(c.title+' '+c.desc).toLowerCase().includes(q))){const rows=materialRows(c),done=rows.filter(x=>x.owned).length;const btn=document.createElement('button');btn.className='card';btn.type='button';btn.innerHTML='<div class="card-top"><span class="glyph">'+c.icon+'</span><span class="arrow">↗</span></div><h3></h3><p></p><div class="meter"><i style="width:'+Math.round(100*done/Math.max(1,rows.length))+'%"></i></div><div class="card-foot"><span>'+done+' / '+rows.length+' collected</span><span>'+section(c.id).finds.length+' saved finds</span></div>';btn.querySelector('h3').textContent=c.title;btn.querySelector('p').textContent=c.desc;btn.onclick=()=>openCategory(c.id);cards.append(btn)}if(!cards.children.length){const empty=document.createElement('div');empty.className='empty';empty.textContent='No house elements match your search.';cards.append(empty)}}
-function openCategory(id){const c=categories.find(x=>x.id===id);if(!c)return;current=id;location.hash=encodeURIComponent(id);$('home').classList.add('hidden');$('detail').classList.remove('hidden');$('detail-title').textContent=c.title;$('detail-description').textContent=c.desc;$('detail-icon').textContent=c.icon;$('notes').value=section(id).notes;renderDetail();scrollTo({top:0,behavior:'instant'})}
-function goHome(){current=null;history.replaceState(null,'',location.pathname+location.search);$('detail').classList.add('hidden');$('home').classList.remove('hidden');renderHome();scrollTo({top:0,behavior:'instant'})}
-function renderDetail(){if(!current)return;const c=categories.find(x=>x.id===current),s=section(current),rows=materialRows(c),done=rows.filter(x=>x.owned).length,spent=rows.reduce((sum,x)=>sum+(Number(x.paid)||0),0),estimated=rows.reduce((sum,x)=>sum+(Number(x.estimate)||0),0);$('detail-progress').textContent=done+' of '+rows.length+' materials collected';$('detail-meter').style.width=Math.round(100*done/Math.max(1,rows.length))+'%';$('detail-cost').textContent='Recorded spending: '+money(spent)+(estimated?' · Estimated materials: '+money(estimated):'');const root=$('items');root.replaceChildren();for(const item of rows){const row=document.createElement('div');row.className='item';const check=document.createElement('input');check.type='checkbox';check.checked=!!item.owned;check.setAttribute('aria-label','Collected '+item.name);check.onchange=()=>{editItem(item.id,{owned:check.checked});renderDetail()};const middle=document.createElement('div');const title=document.createElement('div');title.className='item-title';title.textContent=item.name;const sub=document.createElement('div');sub.className='item-sub';sub.textContent='Qty: '+(item.qty||1)+(item.estimate!=null?' · Est. '+money(item.estimate):'')+(item.paid!=null?' · Paid '+money(item.paid):'')+(item.note?' · '+item.note:'');middle.append(title,sub);const controls=document.createElement('div');controls.className='item-controls';const edit=document.createElement('button');edit.type='button';edit.className='small-btn';edit.textContent='Edit';edit.onclick=()=>editDialog(item);controls.append(edit);if(!item.base){const del=document.createElement('button');del.type='button';del.className='small-btn';del.textContent='Remove';del.onclick=()=>{if(confirm('Remove this material?')){s.items=s.items.filter(x=>x.id!==item.id);persist();renderDetail()}};controls.append(del)}row.append(check,middle,controls);root.append(row)}
-const finds=$('finds');finds.replaceChildren();if(!s.finds.length){const p=document.createElement('div');p.className='empty';p.textContent='No finds saved yet. Your next thrifted treasure goes here.';finds.append(p)}for(const f of s.finds){const row=document.createElement('div');row.className='saved-find';const name=document.createElement('strong');name.textContent=f.name;const meta=document.createElement('div');meta.className='item-sub';meta.textContent=[f.source,f.price!==''?money(f.price):''].filter(Boolean).join(' · ');const link=document.createElement('a');link.href=f.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='Open listing ↗';const remove=document.createElement('button');remove.className='small-btn';remove.textContent='Remove';remove.style.marginLeft='12px';remove.onclick=()=>{if(confirm('Remove saved find?')){s.finds=s.finds.filter(x=>x.id!==f.id);persist();renderDetail()}};row.append(name,meta,link,remove);finds.append(row)}}
-function editItem(id,patch){const s=section(current);if(id.startsWith('base-')){s.edits??={};s.edits[id]={...(s.edits[id]||{}),...patch}}else{s.items=s.items.map(x=>x.id===id?{...x,...patch}:x)}persist()}
-function editDialog(item){const qty=prompt('Quantity needed:',String(item.qty||1));if(qty===null)return;const n=Number(qty);if(!Number.isInteger(n)||n<1){alert('Enter a whole quantity of at least 1.');return}const est=prompt('Estimated cost in dollars (blank = unknown):',item.estimate??'');if(est===null)return;const paid=prompt('Amount actually paid in dollars (blank = none recorded):',item.paid??'');if(paid===null)return;const note=prompt('Material notes:',item.note||'');if(note===null)return;const priceOk=x=>x===''||(Number.isFinite(Number(x))&&Number(x)>=0);if(!priceOk(est)||!priceOk(paid)){alert('Costs must be positive numbers or blank.');return}editItem(item.id,{qty:n,estimate:est===''?null:Number(est),paid:paid===''?null:Number(paid),note});renderDetail()}
-$('add-item').onsubmit=e=>{e.preventDefault();const name=$('new-item').value.trim(),qty=Number($('new-qty').value),est=$('new-estimate').value;if(!name||!Number.isInteger(qty)||qty<1)return;section(current).items.push({id:'custom-'+Date.now()+'-'+Math.random().toString(36).slice(2,7),name,qty,estimate:est===''?null:Number(est),owned:false});persist();e.target.reset();$('new-qty').value=1;renderDetail()};
-$('add-find').onsubmit=e=>{e.preventDefault();const name=$('find-name').value.trim(),url=$('find-url').value.trim();let parsed;try{parsed=new URL(url)}catch{return alert('Please enter a valid URL.')}if(!['https:','http:'].includes(parsed.protocol)||!name)return alert('Please enter an HTTP(S) listing URL.');section(current).finds.push({id:'find-'+Date.now()+'-'+Math.random().toString(36).slice(2,7),name,url:parsed.href,price:$('find-price').value,source:$('find-source').value.trim()});persist();e.target.reset();renderDetail()};
-$('save-notes').onclick=()=>{section(current).notes=$('notes').value;persist();const b=$('save-notes');b.textContent='Saved ✓';setTimeout(()=>b.textContent='Save notes',1200)};
-$('export-btn').onclick=()=>{const payload=JSON.stringify({version:1,exportedAt:new Date().toISOString(),sections:state},null,2);const blob=new Blob([payload],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='tiny-house-tracker-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1500)};
-$('home-btn').onclick=goHome;$('back-btn').onclick=goHome;$('explore-btn').onclick=()=>$('build-start').scrollIntoView({behavior:'smooth'});$('category-search').oninput=renderHome;window.addEventListener('hashchange',()=>{const id=decodeURIComponent(location.hash.slice(1));if(categories.some(c=>c.id===id)){if(current!==id)openCategory(id)}else if(current)goHome()});renderHome();const initial=decodeURIComponent(location.hash.slice(1));if(categories.some(c=>c.id===initial))openCategory(initial);
-</script></body></html>
+<main id="detail" class="hidden">
+<button class="btn ghost back" id="back-btn">← All house elements</button>
+<div class="detail-hero">
+<div class="glyph" id="detail-icon">
+</div>
+<div>
+<div class="eyebrow">Element tracker</div>
+<h1 id="detail-title">
+</h1>
+<p id="detail-description">
+</p>
+</div>
+</div>
+<div class="detail-grid">
+<div>
+<section class="pane">
+<h2>Materials checklist</h2>
+<p>Check an item only when you actually have it. Use the edit button to record costs, quantities, and notes.</p>
+<div id="items">
+</div>
+<form id="add-item">
+<h3>Add a material</h3>
+<label class="field">Material name<input id="new-item" required maxlength="120" placeholder="e.g. Reclaimed oak boards">
+</label>
+<div class="form-row">
+<label class="field">Quantity needed<input id="new-qty" type="number" min="1" step="1" value="1">
+</label>
+<label class="field">Estimated cost ($)<input id="new-estimate" type="number" min="0" step=".01" placeholder="Optional">
+</label>
+</div>
+<button class="btn primary" type="submit">+ Add material</button>
+</form>
+</section>
+<section class="pane">
+<h2>Saved secondhand finds</h2>
+<p>Save links and asking prices while you're hunting. Saving a find does not mark it as purchased.</p>
+<div id="finds">
+</div>
+<form id="add-find">
+<label class="field">Listing or item name<input id="find-name" required maxlength="140" placeholder="e.g. Salvaged window set">
+</label>
+<label class="field">Listing URL (https://…) <input id="find-url" type="url" required placeholder="https://…">
+</label>
+<div class="form-row">
+<label class="field">Asking price ($)<input id="find-price" type="number" min="0" step=".01" placeholder="Optional">
+</label>
+<label class="field">Source<input id="find-source" maxlength="60" placeholder="Marketplace, yard sale…">
+</label>
+</div>
+<button class="btn primary" type="submit">+ Save find</button>
+</form>
+</section>
+</div>
+<div>
+<section class="pane">
+<h2>Collection progress</h2>
+<div id="detail-progress">
+</div>
+<div class="progress">
+<i id="detail-meter">
+</i>
+</div>
+<p id="detail-cost">
+</p>
+</section>
+<section class="pane">
+<h2>Project notes</h2>
+<p>Measurements, preferences, inspection reminders, or design ideas.</p>
+<label class="field">Your notes<textarea id="notes" placeholder="Write your plans here…">
+</textarea>
+</label>
+<button class="btn" id="save-notes">Save notes</button>
+</section>
+<section class="pane">
+<h2>Data & privacy</h2>
+<p>This is a frontend prototype. Your edits are saved only in this browser's local storage, not GitHub or a shared database. Clearing browser data may erase them.</p>
+<button class="btn ghost" id="export-btn">Export my tracker JSON ↓</button>
+<p class="warning">Use Export to keep a backup. Syncing across devices comes in the backend phase.</p>
+</section>
+</div>
+</div>
+</main>
+<footer>
+<span>✦ Hearth & Haul · Tiny House Tracker</span>
+<span>Plan thoughtfully · Salvage creatively · Build safely</span>
+<a href="https://github.com/JadesTheDev/tiny-house-tracker" target="_blank" rel="noopener noreferrer">View repository ↗</a>
+</footer>
+</div>
+<script src="app.js" defer>
+</script>
+</body>
+</html>
