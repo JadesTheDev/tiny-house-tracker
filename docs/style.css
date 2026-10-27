@@ -16,7 +16,9 @@
 }
 body {
   margin:0;
-  background:radial-gradient(ellipse at 12% 2%,#31365d 0,transparent 38%),radial-gradient(ellipse at 90% 5%,#38223f 0,transparent 34%),var(--bg);
+  background:
+    linear-gradient(90deg, #24345b 0%, #171b35 24%, #0d1020 50%, #26162e 76%, #38203e 100%);
+  background-attachment:fixed;
   color:var(--ink);
   font-family:Inter,ui-sans-serif,system-ui,sans-serif;
   min-height:100vh
